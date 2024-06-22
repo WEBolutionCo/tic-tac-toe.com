@@ -1,53 +1,75 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: #282c34;
-    margin: 0;
-    color: #fff;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #282c34;
+  margin: 0;
+  color: #fff;
 }
 
 .container {
-    text-align: center;
+  text-align: center;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
 }
 
 h1 {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 3rem;
+  color: #17a2dd;
 }
 
 .game-board {
   display: grid;
   grid-template-columns: repeat(3, 100px);
   grid-template-rows: repeat(3, 100px);
-  gap: 10px;
+  gap: 22px;
   margin-bottom: 20px;
 }
 
 .cell {
   width: 100px;
   height: 100px;
-  background: #333;
+  background: #121212;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 3rem;
-  transition: background 0.3s;
+  font-size: 3.6rem;
+  transition: background 0.3s, transform 0.3s;
   border-radius: 10px;
   border: solid 2px #17a2dd;
+  font-family: "Protest Revolution", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .cell:hover {
-  background: #555;
+  background: #333;
 }
 
 .cell:active {
-  background: #111;
+  background: #000;
+}
+
+.cell.show {
+  transform: scale(1.2);
+}
+
+.win-player {
+  font-family: 'Protest Revolution', sans-serif;
+  margin: 0 3px 0 0;
+  color: #49baf1;
 }
 
 .game-over {
@@ -56,6 +78,16 @@ h1 {
 
 .game-over.show {
   display: block;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 button {
@@ -63,9 +95,26 @@ button {
   border: none;
   padding: 10px 20px;
   font-size: 1rem;
-  transition: background 0.3s;
+  transition: background 0.3s, transform 0.5s ease-out;
   border-radius: 10px;
   margin-top: 7px;
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  transform: translateX(-200%);
+  opacity: 0;
+}
+
+button.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.message {
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #17a2dd;
 }
 
 button:hover {
